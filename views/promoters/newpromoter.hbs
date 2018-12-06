@@ -1,0 +1,39 @@
+<h2 class="pb-2 mb-4 font-italic ">Criar Promotor</h2>
+<form method="post" action="/backend/promoters/new" enctype="multipart/form-data" class="needs-validation" novalidate>
+    <div class="form-group">
+        <label for="name">Nome</label>
+        <input type="text" class="form-control" id="name" name="name" placeholder="MFW Entretainment" required>
+        <div class="invalid-feedback">
+            Por favor insira um nome valido.
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="phoneNumber">Telefone</label>
+        <input type="text" class="form-control" id="phoneNumber" name="phoneNumber" placeholder="847203683" maxlength="9" minlength="7" required>
+        <div class="invalid-feedback">
+            Por favor insira numero valido.
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="phoneNumber">Email</label>
+        <input type="email" class="form-control" id="email" name="email" placeholder="onelio.mapinde@fireticket.com" required>
+        <div class="invalid-feedback">
+            Por favor insira um email valido.
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="description">Descricao</label>
+        <textarea class="form-control" id="description" name="description" type="text" rows="3" required></textarea>
+        <div class="invalid-feedback">
+            Por favor insira um texto para o post.
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="mainimage">Imagem</label>
+        <input type="file" class="form-control" id="mainimage" name="mainimage">
+    </div>
+    <button type="submit" class="btn btn-primary">Criar Promotor</button>
+    <br>
+    <br>
+
+</form>

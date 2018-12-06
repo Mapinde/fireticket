@@ -1,0 +1,166 @@
+<h2 class="pb-2 mb-4 font-italic ">Criar Event</h2>
+<form method="post" action="/newevent/{{promoterId}}" enctype="multipart/form-data" class="needs-validation" novalidate>
+    <div class="form-group">
+        <label for="title">Titulo</label>
+        <input type="text" class="form-control" id="title" name="title" placeholder="Sunrise Maputo" required>
+        <div class="invalid-feedback">
+            Por favor insira um nome valido.
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="description">Descricao</label>
+        <textarea class="form-control" id="description" name="description" type="text" rows="3" required></textarea>
+        <div class="invalid-feedback">
+            Por favor insira um texto para o post.
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="price">Tipo de Bilhetes</label>
+        <div class="form-row">
+            <div class="col">
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="freeCheck">
+                    <label class="form-check-label" for="freeCheck">
+                        Free
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="col">
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="kidCheck">
+                    <label class="form-check-label" for="kidCheck">
+                        Crianca
+                    </label>
+                </div>
+            </div>
+            <div class="col">
+                <input type="number" class="form-control" name="kidPrice" id="kidPrice" placeholder="Preco Crianca">
+            </div>
+            <div class="col">
+                <input type="number" class="form-control" name="kidQuantity" id="kidQuantity" placeholder="Quantidade">
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="col">
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="adultCheck">
+                    <label class="form-check-label" for="adultCheck">
+                        Adulto
+                    </label>
+                </div>
+            </div>
+            <div class="col">
+                <input type="number" class="form-control" name="adultPrice" id="adultPrice" placeholder="Preco Adulto">
+            </div>
+            <div class="col">
+                <input type="number" class="form-control" name="adultQuantity" id="adultQuantity" placeholder="Quantidade">
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="col">
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="promoCheck">
+                    <label class="form-check-label" for="promoCheck">
+                        Promocional
+                    </label>
+                </div>
+            </div>
+            <div class="col">
+                <input type="number" class="form-control" name="promoPrice" id="promoPrice" placeholder="Preco Promo">
+            </div>
+            <div class="col">
+                <input type="number" class="form-control" name="promoQuantity" id="promoQuantity"  placeholder="Quantidade">
+            </div>
+            <div class="col">
+                <input type="number" class="form-control" name="promoCode" id="promoCode"  placeholder="Codigo">
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="col">
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="normalCheck">
+                    <label class="form-check-label" for="normalCheck">
+                        Normal
+                    </label>
+                </div>
+            </div>
+            <div class="col">
+                <input type="number" class="form-control" name="normalPrice" id="normalPrice" placeholder="Preco Normal">
+            </div>
+            <div class="col">
+                <input type="number" class="form-control" name="normalQuantity" id="normalQuantity"  placeholder="Quantidade">
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="col">
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="vipCheck">
+                    <label class="form-check-label" for="vipCheck">
+                        VIP
+                    </label>
+                </div>
+            </div>
+            <div class="col">
+                <input type="number" class="form-control" name="vipPrice" id="vipPrice" placeholder="Preco VIP">
+            </div>
+            <div class="col">
+                <input type="number" class="form-control" name="vipQuantity" id="vipQuantity" placeholder="Quantidade">
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="local">Local</label>
+        <input type="text" class="form-control" id="local" name="local" placeholder="ATCM" required>
+        <div class="invalid-feedback">
+            Por favor insira numero valido.
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="address">Endereco</label>
+        <input type="text" class="form-control" id="address" name="address" placeholder="Av. da Marginal 724" required>
+        <div class="invalid-feedback">
+            Por favor insira um email valido.
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="categoria">Categoria</label>
+        <select class="custom-select" name="category">
+            <option value="Festival">Festival</option>
+            <option value="Concerto">Concerto</option>
+            <option value="Party">Party</option>
+            <option value="Show">Show</option>
+        </select>
+        <div class="invalid-feedback">
+            Por favor selecione uma categoria.
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="address">Data e Hora Inicial</label>
+        <div class="input-group date" id="datetimepicker7" data-target-input="nearest">
+            <input type="text" class="form-control datetimepicker-input" name="startDataTime" data-target="#datetimepicker7"/>
+            <div class="input-group-append" data-target="#datetimepicker7" data-toggle="datetimepicker">
+                <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="address">Data e Hora Final</label>
+        <div class="input-group date" id="datetimepicker8" data-target-input="nearest">
+            <input type="text" class="form-control datetimepicker-input" name="endDataTime" data-target="#datetimepicker8"/>
+            <div class="input-group-append" data-target="#datetimepicker8" data-toggle="datetimepicker">
+                <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="mainimage">Imagem</label>
+        <input type="file" class="form-control" id="mainimage" name="mainimage">
+    </div>
+    <button type="submit" class="btn btn-primary">Criar Evento</button>
+    <br>
+    <br>
+
+</form>

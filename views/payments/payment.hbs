@@ -1,0 +1,40 @@
+<h3>{{title}}</h3><p>organizado por {{promoterName}}</p>
+<form method="post" action="/payments/mpesa/">
+    <input type="hidden" name="event_id" value="{{eventId}}">
+    <input type="hidden" name="promoter_id" value="{{promoterId}}">
+    <input type="hidden" name="promoter_Name" value="{{promoterName}}">
+    <input type="hidden" name="event_Name" value="{{title}}">
+    <div class="form-row">
+        <div class="form-group col-md-3">
+            <label for="prefix">Prefix</label>
+            <select class="custom-select" name="prefix">
+                <option value="25884">25884</option>
+                <option value="25885">25885</option>
+            </select>
+        </div>
+        <div class="form-group col-md-9">
+            <label for="phoneNumber">Numero</label>
+            <input type="text" class="form-control" name="phoneNumber" placeholder="7203683" maxlength="7" required>
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <label for="name">Valor a Pagar</label>
+            <input class="form-control" type="text" name="amount" value="{{amount}}" readonly>
+        </div>
+        <div class="form-group col-md-6">
+            <label for="quantity">Quantidade</label>
+            <input type="number" class="form-control" name="quantity" id="quantity" placeholder="3">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="name">Nome completo</label>
+        <input type="text" class="form-control" name="name" id="name" required placeholder="Onelio Mapinde">
+    </div>
+    <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" class="form-control" name="email" required placeholder="onelio.mapinde@fireticket.com">
+        <small id="emailHelp" class="form-text text-muted">O bilhete sera enviado para esse endereco de email.</small>
+    </div>
+    <input type="submit" class="btn btn-success btn-lg"  value="Pagar">
+</form>
