@@ -3,6 +3,7 @@ const router = express.Router();
 const axios = require('axios');
 
 const Payment = require('../models/payment');
+const Event = require('../models/event');
 const sendMail = require('../services/email');
 
 /* GET home page. */
@@ -23,18 +24,35 @@ router.get('/:eventId/:price/:title/:promoterName/:promoterId', function(req, re
     });
 });
 
+router.get('/:eventId', async function(req, res, next) {
+    let eventid = req.params.eventId;
+    try{
+        const eventResult = await Event.getEventById(eventid);
+        console.log(eventResult);
+        res.render('payments/payment', {
+            layout:'layoutPayment',
+            event: eventResult,
+            headerTitle: 'Pagamento via M-Pesa'
+        });
+    }catch (e) {
+        console.log(e.message);
+    }
+
+});
+
 router.post('/mpesa/', async (req, res, next) => {
     let eventid = req.body.event_id;
     let promoterId = req.body.promoter_id;
     let promoterName = req.body.promoter_Name;
     let title = req.body.event_Name;
-    let phoneNumber = '25884' + req.body.phoneNumber;
+    let phoneNumber = req.body.prefix + req.body.phoneNumber;
     let price = req.body.amount;
     let quantity = req.body.quantity;
     let userName = req.body.name;
     let email = req.body.email;
     let paymentresult;
     let paymentstatus;
+    let priceTotal = price * quantity;
     const htmltxt = '';
 
     req.checkBody('phoneNumber', 'Telefone obrigatorio').notEmpty();
@@ -51,7 +69,7 @@ router.post('/mpesa/', async (req, res, next) => {
     } else {
 
         await axios.post('https://morning-refuge-15908.herokuapp.com/payments', {
-                "amount":price,
+                "amount":priceTotal,
                 "phoneNumber":parseInt(phoneNumber),
                 "reference":"T17965A",
                 "input_MerchantId":"5bfd9a0d0141632052f45e9a"
@@ -68,7 +86,6 @@ router.post('/mpesa/', async (req, res, next) => {
 
 
         if( paymentstatus == 200 || paymentstatus == 201){
-
 
             const newPayment = new Payment({
                 phoneNumber: parseInt(phoneNumber),

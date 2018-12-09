@@ -82,6 +82,18 @@ $(function () {
             $("#vipQuantity").hide();
         }
     });
+
+    // Bilhete Free
+    $("#freeQuantity").hide();
+    $("#freeCheck").click(function() {
+        if($(this).is(":checked")) {
+            $("#freeQuantity").show();
+
+        } else {
+            $("#freeQuantity").hide();
+
+        }
+    });
 });
 
 $(document).ready(function() {

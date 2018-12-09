@@ -1,0 +1,51 @@
+
+<div class="col-8 col-md-8">
+    <h1>{{event.title}}</h1>
+    <h2>{{event.startDateTime}}</h2>
+    <div class="card-body">
+        <h5 class="card-title">Descrição do evento</h5>
+        <p class="card-text">{{event.description}}</p>
+    </div>
+    <div class="card card-body">
+        <h2 class="card-title">Sobre o Promotor</h2>
+        <h5 class="card-subtitle">{{event.promoterId.name}}</h5>
+        <p class="card-text">{{event.promoterId.description}}</p>
+
+    </div>
+    <div class="card-body">
+        <h2 class="card-title">Contactos</h2>
+        <p>Telefone: {{event.promoterId.phoneNumber}}</p>
+        <p class="card-text">Email: {{event.promoterId.email}}</p>
+
+    </div>
+</div>
+<div class="col-4 col-md-4">
+    <a href="/payments/{{event._id}}" class="btn btn-success btn-lg btn-block">Pagar Via M-Pesa</a>
+    <br>
+    <h4>Detalhes do evento</h4>
+    <table class="table table-striped">
+        <tbody>
+        <tr>
+            <td><b>Local</b></td>
+            <td>{{event.local}}</td>
+        </tr>
+        <tr>
+            <td><b>Endereco</b></td>
+            <td>{{event.address}}</td>
+        </tr>
+        <tr>
+            <td><b>Inicio</b></td>
+            <td>{{event.startDateTime}}</td>
+        </tr>
+        <tr>
+            <td><b>Fim</b></td>
+            <td>{{event.endDateTime}}</td>
+        </tr>
+        <tr>
+            <td><b>Categoria</b></td>
+            <td>{{event.category}}</td>
+        </tr>
+        </tbody>
+
+    </table>
+</div>
