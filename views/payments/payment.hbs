@@ -2,7 +2,7 @@
 
     <h3>{{event.title}}</h3><p>organizado por <a href=""> {{event.promoterId.name}}</a></p>
     <form method="post" action="/payments/mpesa/">
-        <input type="hidden" name="event_id" value="{{event_.Id}}">
+        <input type="hidden" name="event_id" value="{{event._id}}">
         <input type="hidden" name="promoter_id" value="{{event.promoterId._id}}">
         <input type="hidden" name="promoter_Name" value="{{event.promoterId.name}}">
         <input type="hidden" name="event_Name" value="{{event.title}}">

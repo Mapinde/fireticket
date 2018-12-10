@@ -41,18 +41,20 @@ router.get('/:eventId', async function(req, res, next) {
 });
 
 router.post('/mpesa/', async (req, res, next) => {
+    console.log(req.body);
     let eventid = req.body.event_id;
     let promoterId = req.body.promoter_id;
     let promoterName = req.body.promoter_Name;
     let title = req.body.event_Name;
     let phoneNumber = req.body.prefix + req.body.phoneNumber;
-    let price = req.body.amount;
+    let price = req.body.price;
     let quantity = req.body.quantity;
     let userName = req.body.name;
     let email = req.body.email;
     let paymentresult;
     let paymentstatus;
     let priceTotal = price * quantity;
+    console.log("Valor total a pagar", priceTotal);
     const htmltxt = '';
 
     req.checkBody('phoneNumber', 'Telefone obrigatorio').notEmpty();
@@ -71,7 +73,7 @@ router.post('/mpesa/', async (req, res, next) => {
         await axios.post('https://morning-refuge-15908.herokuapp.com/payments', {
                 "amount":priceTotal,
                 "phoneNumber":parseInt(phoneNumber),
-                "reference":"T17965A",
+                "reference":"T10065A",
                 "input_MerchantId":"5bfd9a0d0141632052f45e9a"
             })
             .then(function (response) {

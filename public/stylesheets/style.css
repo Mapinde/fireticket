@@ -102,11 +102,11 @@ footer p {
   backdrop-filter: saturate(180%) blur(20px);
 }
 .site-header a {
-  color: #999;
+  color: #202121;
   transition: ease-in-out color .15s;
 }
 .site-header a:hover {
-  color: #fff;
+  color: #999;
   text-decoration: none;
 }
 
@@ -117,9 +117,27 @@ footer p {
 }
 
 .bg-dark {
-  background-color: #300032!important;
+  background-color: #fff!important;
 }
 .card-title {
   color: #c43235;
   font-size: 24px;
 }
+.navbar {
+  height: 70px;
+  border-bottom: 1px solid #E6EAEA;
+}
+
+.navbar-dark .navbar-brand {
+  color: #202121;
+}
+
+.navbar-dark .navbar-toggler {
+  color: rgba(255,255,255,.5);
+  background-color: #c43235;
+  border-color: rgba(255, 10, 22, 0.1);
+}
+#header-title{
+  color: #202121;
+}
+
