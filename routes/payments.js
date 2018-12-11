@@ -54,7 +54,6 @@ router.post('/mpesa/', async (req, res, next) => {
     let paymentresult;
     let paymentstatus;
     let priceTotal = price * quantity;
-    console.log("Valor total a pagar", priceTotal);
     const htmltxt = '';
 
     req.checkBody('phoneNumber', 'Telefone obrigatorio').notEmpty();
@@ -73,8 +72,7 @@ router.post('/mpesa/', async (req, res, next) => {
         await axios.post('https://morning-refuge-15908.herokuapp.com/payments', {
                 "amount":priceTotal,
                 "phoneNumber":parseInt(phoneNumber),
-                "reference":"T10065A",
-                "input_MerchantId":"5bfd9a0d0141632052f45e9a"
+                "merchantId":"5bfd9a0d0141632052f45e9a"
             })
             .then(function (response) {
                 //console.log(response);
@@ -99,6 +97,7 @@ router.post('/mpesa/', async (req, res, next) => {
                 eventid: eventid,
                 promoterName:promoterName,
                 promoterId: promoterId,
+                paymentId: paymentresult._id,
                 transactionId: paymentresult.output_TransactionID,
                 conversationId:paymentresult.output_ConversationID
             });
@@ -110,10 +109,10 @@ router.post('/mpesa/', async (req, res, next) => {
                 req.flash('success_msg', 'Pagamento feito com sucesso');
             }catch (e) {
                 console.log(e.message);
-                req.flash('error', 'ocorreu um error a efectuar o pagamento');
+                req.flash('error', 'ocorreu um error a efectuar o pagamento, tente de novo');
             }
         }else{
-            req.flash('error', 'Pagamento nao efectuado, ocorreu um erro ao efectuar o pagamento');
+            req.flash('error', 'Pagamento nao efectuado, ocorreu um erro ao efectuar o pagamento, tente de novo');
         }
 
         res.redirect('/');

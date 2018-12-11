@@ -144,7 +144,7 @@ router.post('/newevent/:promoterId', upload.single('mainimage'), async function(
             address:address,
             promoterId:promoterId,
             category: category,
-            startDataTime: startDateTime.toString(),
+            startDateTime: startDateTime.toString(),
             endDateTime:endDateTime.toString(),
             mainimage:mainimage
         });

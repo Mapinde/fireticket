@@ -10,6 +10,7 @@ const paymentSchema = mongoose.Schema({
     eventid:{type: mongoose.Schema.Types.ObjectId, required: true},
     promoterName:{type: String, required: true},
     promoterId:{type: mongoose.Schema.Types.ObjectId, required:true},
+    paymentId:{type: mongoose.Schema.Types.ObjectId},
     transactionId:{type: String},
     conversationId:{type: String},
     created:{type: Date, default: Date.now()},

@@ -1,0 +1,28 @@
+<form method="post" action="/educations/{{candidato._id}}/education/new" class="needs-validation" novalidate>
+    <div class="form-group">
+        <label for="deEmail">De</label>
+        <input type="email" class="form-control" id="deEmail" name="deEmail" placeholder="meu.email@meu.com" required>
+        <div class="invalid-feedback">
+            Deve preencher o seu email.
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="assuntoEmail">Assunto</label>
+        <select class="form-control" name="assuntoEmail">
+            <option value="publicar">Publicar</option>
+            <option value="Bilhete">Bilhete</option>
+        </select>
+        <div class="invalid-feedback">
+            Nivel obrigatorio. Ex: Mestrado em Gestao.
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="bodyEmail">Texto</label>
+        <textarea class="form-control" name="bodyEmail" id="bodyEmail" rows="5"required></textarea>
+        <div class="invalid-feedback">
+            obirgatoria preencher a mensagem.
+        </div>
+    </div>
+
+    <button type="submit" class="btn btn-primary float-right">Enviar</button>
+</form>
