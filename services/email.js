@@ -15,7 +15,7 @@ const sendMailService = {
         const mailOptions = {
             from: 'onelio.mapinde@gmail.com', // sender address
             to: email, // list of receivers
-            subject: text, // Subject line
+            subject: 'FireTicket - '+text, // Subject line
             html: htmltxt// plain text body
         };
 

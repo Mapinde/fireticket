@@ -28,7 +28,6 @@ router.get('/:eventId', async function(req, res, next) {
     let eventid = req.params.eventId;
     try{
         const eventResult = await Event.getEventById(eventid);
-        console.log(eventResult);
         res.render('payments/payment', {
             layout:'layoutPayment',
             event: eventResult,

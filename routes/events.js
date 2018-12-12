@@ -26,14 +26,14 @@ router.get('/', async function(req, res, next) {
 });
 
 router.get('/newevent/:promoterId', function(req, res, next) {
-    const id = req.params.promoterId;
-    res.render('events/newevent', {layout:'layoutPayment', promoterId: id });
+    const promoterId = req.params.promoterId;
+    res.render('events/newevent', {layout:'layoutPayment', promoterId: promoterId });
 });
 
 router.get('/:eventId', async function(req, res, next) {
-    const id = req.params.eventId;
+    const eventId = req.params.eventId;
     try{
-        const event = await Event.getEventById(id);
+        const event = await Event.getEventById(eventId);
         res.render('events/viewevent', {layout:'layoutEvent', event: event });
     }catch (e) {
         console.log(e.message);

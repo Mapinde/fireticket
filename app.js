@@ -24,9 +24,12 @@ var storage = multer.diskStorage({
 });
 var upload = multer({ storage: storage })
 
+const indexRouter = require('./routes/index');
 const eventsRouter = require('./routes/events');
 const paymentsRouter = require('./routes/payments');
 const promotersRouter = require('./routes/promoters');
+const servicesRouter = require('./routes/services');
+
 const usersRouter = require('./routes/users');
 
 const app = express();
@@ -79,9 +82,11 @@ app.use(function(req, res, next) {
     next();
 });
 
-app.use('/', eventsRouter);
+app.use('/', indexRouter);
+app.use('/events', eventsRouter);
 app.use('/payments', paymentsRouter);
 app.use('/backend/promoters', promotersRouter);
+app.use('/services', servicesRouter);
 app.use('/users', usersRouter);
 
 // catch 404 and forward to error handler
