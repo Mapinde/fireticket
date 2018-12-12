@@ -68,20 +68,27 @@ router.post('/mpesa/', async (req, res, next) => {
         res.render('payments/payment', {errors: errors});
     } else {
 
-        await axios.post('https://morning-refuge-15908.herokuapp.com/payments', {
+        try{
+            await axios.post('https://morning-refuge-15908.herokuapp.com/payments', {
                 "amount":priceTotal,
                 "phoneNumber":parseInt(phoneNumber),
                 "merchantId":"5bfd9a0d0141632052f45e9a"
-            })
-            .then(function (response) {
-                //console.log(response);
-                paymentstatus = response.status;
-                paymentresult = response.data.payment;
+            }).then(function (response) {
+                    //console.log(response);
+                    paymentstatus = response.status;
+                    paymentresult = response.data.payment;
             })
             .catch(function (error) {
-                //console.log(error.response);
-                paymentstatus = error.response.status;
+                    //console.log(error.response);
+                    paymentstatus = error.response.status;
+                    next();
             });
+
+        }catch (e) {
+            console.log(e.message);
+        }
+
+
 
 
         if( paymentstatus == 200 || paymentstatus == 201){
