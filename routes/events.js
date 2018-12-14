@@ -75,7 +75,7 @@ router.post('/newevent/:promoterId', upload.single('mainimage'), async function(
     if(req.file){
         mainimage = req.file.originalname;
     } else {
-        mainimage = 'noimage.jpg';
+        mainimage = 'yourevents.jpeg';
     }
 
 

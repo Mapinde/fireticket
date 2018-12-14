@@ -1,5 +1,5 @@
 <h2 class="pb-2 mb-4 font-italic ">Criar Event</h2>
-<form method="post" action="/newevent/{{promoterId}}" enctype="multipart/form-data" class="needs-validation" novalidate>
+<form method="post" action="/events/newevent/{{promoterId}}" enctype="multipart/form-data" class="needs-validation" novalidate>
     <div class="form-group">
         <label for="title">Titulo</label>
         <input type="text" class="form-control" id="title" name="title" placeholder="Sunrise Maputo" required>
@@ -161,10 +161,6 @@
     <div class="form-group">
         <label for="mainimage">Post Image</label>
         <input type="file" class="form-control-file" id="mainimage" name="mainimage">
-    </div>
-    <div class="form-group">
-        <label for="widthimage">View Image</label>
-        <input type="file" class="form-control-file" id="widthimage" name="widthimage">
     </div>
     <button type="submit" class="btn btn-primary">Criar Evento</button>
     <br>

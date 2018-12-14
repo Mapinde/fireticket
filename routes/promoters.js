@@ -17,7 +17,11 @@ const Promoter = require('../models/promoter');
 router.get('/', async function(req, res, next) {
     try{
         const promoters = await Promoter.getPromoters();
-        res.render('promoters/listpromoter', {layout:'layoutPayment', promoters: promoters });
+        res.render('promoters/listpromoter', {
+            layout:'layoutPayment',
+            promoters: promoters,
+            headerTitle: 'Lista de promotores'
+        });
     }catch (e) {
         console.log(e.message);
     }

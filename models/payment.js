@@ -13,6 +13,7 @@ const paymentSchema = mongoose.Schema({
     paymentId:{type: mongoose.Schema.Types.ObjectId},
     transactionId:{type: String},
     conversationId:{type: String},
+    ticketId:{type:Number, default: 0},
     created:{type: Date, default: Date.now()},
     updated:{type: Date, default: Date.now()}
 
